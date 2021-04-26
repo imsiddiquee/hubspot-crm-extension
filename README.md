@@ -25,9 +25,8 @@ One of my client's requirements was to know about the deals product line item in
 
 The extension basically is like adding a door to explore outside from your comfort. You can utilize any outsider programming apparatus within your Hub Spot CRM, as long as you have a joining. The integration gives you the opportunity to utilize outsider applications.
 
-## Here we can learn:
-
 ```
+## What can we learn:
 • How to use HubSpot API to retrieve hub data.
 • Manipulation of HubSpot data to prepare an analytical summary.
 • Way to work with CRM extension actions, as my card view detail.
@@ -36,4 +35,5 @@ The extension basically is like adding a door to explore outside from your comfo
 • Group by objects based on property.
 • Sorted by objects based on property.
 
-```
+#Contributing
+This repo is public so anyone can contribute by submitting a pull request with a  proper commit message.
