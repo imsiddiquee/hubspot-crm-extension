@@ -34,6 +34,7 @@ The extension basically is like adding a door to explore outside from your comfo
 • On property object array; a way to calculate the accumulated sum.
 • Group by objects based on property.
 • Sorted by objects based on property.
+```
 
-#Contributing
+Contributing
 This repo is public so anyone can contribute by submitting a pull request with a  proper commit message.
