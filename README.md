@@ -36,5 +36,7 @@ The extension basically is like adding a door to explore outside from your comfo
 • Sorted by objects based on property.
 ```
 
-##Contributing
+#Contributing
+
 This repo is public so anyone can contribute by submitting a pull request with a  proper commit message.
+
