@@ -1,4 +1,5 @@
-# CRM extension can be used to enhance the HubSpot object's scope.
+# How Can We explore New Feature of Hubspot CRM Extension 
+
 
 In HubSpot, the company object is closely attached with deals and the deal object has one too many relations with product line items. My CRM extension shows any company's analytical summary of product line items along with price quantity based on different categories from custom field carriers.
 
