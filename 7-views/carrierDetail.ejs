@@ -1,0 +1,34 @@
+<!-- inlcude header -->
+<%- include('./layouts/header') %>
+<!-- /inlcude header -->
+
+<h1 class="table">Carrier Detail</h1>
+
+<div>
+  <table class="table">
+    <thead>
+      <th>Name</th>
+      <th>Create Date</th>
+      <th>First Contact Create Date</th>
+      <th>Parent Company</th>
+      <th>Connectivity</th>
+      <th>Recent Deal Close Date</th>
+    </thead>
+    <tbody>
+      <% deals.forEach(ticket => { %>
+      <tr>
+        <td><%= ticket.dealName %></td>
+        <td><%= ticket.createDate %></td>
+        <td><%= ticket.firstContactCreateDate %></td>
+        <td><%= ticket.parentCompany %></td>
+        <td><%= ticket.connectivity %></td>
+        <td><%= ticket.recentDealCloseDate %></td>
+      </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>
+
+<!-- inlcude footer -->
+<%- include('./layouts/footer') %>
+<!-- /inlcude footer -->

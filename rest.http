@@ -1,0 +1,133 @@
+###
+GET http://localhost:8080
+
+###
+
+GET http://localhost:8080/test
+
+
+###Register route
+POST http://localhost:8080/auth/signup
+Content-Type: application/json
+
+
+{ 
+    "username":"", "email":"", "password":""
+}
+
+###
+GET http://localhost:8080/products
+
+
+### post new product
+Post http://localhost:8080/products
+Content-Type: application/x-www-form-urlencoded
+
+name=iMac&price=5000
+
+
+
+### post new product
+POST http://localhost:8080/products
+Content-Type: application/json
+
+
+{ 
+    "name":"iMac-a", "price":8000
+}
+
+###
+GET http://localhost:8080/products/60310c425d621d3c68f8b0ff
+
+###
+PATCH  http://localhost:8080/products/60310c425d621d3c68f8b01d
+Content-Type: application/json
+
+{ 
+    "name":"iMac-a", "price":5000
+}
+
+###
+DELETE   http://localhost:8080/products/60310c425d621d3c68f8b01d
+
+
+### get all rockets
+GET http://localhost:8080/rockets
+
+### get rocket by id
+GET http://localhost:8080/rockets/falcon1
+
+### get rocket by id
+GET http://localhost:8080/tierone
+
+
+### get rocket by id
+POST http://localhost:8080/tierone
+Content-Type: application/json
+
+{
+"objectId":4949871654,
+"name":"test"
+}
+
+### get rocket by id
+GET http://localhost:8080/tickets
+
+### get rocket by id
+GET http://localhost:8080/tickets/hubspot
+
+
+
+### get rocket by id
+POST http://localhost:8080/tickets
+Content-Type: application/json
+
+{
+"description":"test2"
+}
+
+
+### hubCompany carrier
+GET http://localhost:8080/hubCompany?id=4490302912
+
+### hubCompany carrier
+GET http://localhost:8080/hubCompany?hs_object_id=4490302912
+
+### hubCompany carrier
+GET http://localhost:8080/tickets/hubspot
+
+### hubCompany deal dropdown
+GET http://localhost:8080/hubDeal/4489397443
+
+
+### TierOne
+POST http://localhost:8080/hubspot/api/post_get_a_group_of_line_items_by_id
+Content-Type: application/json
+
+{
+  "ids": [
+    1259303592    
+  ]
+}
+
+
+### post CarrierAnalytic
+POST http://localhost:8080/carrierAnalytic/api/post_carrier_analytic
+Content-Type: application/json
+
+{
+  "companyId":123,
+  "clientApp":"TierOne",
+  "extensions":[{"name":"shamim","address":"test"}],
+"description":"CarrierAnalytic"
+}
+
+### get CarrierAnalytic by companyId
+GET http://localhost:8080/carrierAnalytic/api/get_carrier_analytic_by_id/5644499285?client=TierOne
+
+
+### get CarrierAnalytic by companyId
+GET http://localhost:8080/tierone/get_tierone_company_carrier?hs_object_id=5837990014&client=TierOne
+
+### DELETE CarrierAnalytic by companyId
+DELETE  http://localhost:8080/carrierAnalytic/api/delete_carrier_analytic/5837990014?client=TierOne

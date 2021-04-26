@@ -1,0 +1,9 @@
+<h1 class="table">Deals</h1>
+
+<div>
+  <select name="companyDeal" id="companyDeal">
+    <% for (var key of deals) {%>
+    <option value="<%=key.dealId%>"><%= key.dealDetail %></option>
+    <% }%>
+  </select>
+</div>

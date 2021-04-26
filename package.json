@@ -1,0 +1,48 @@
+{
+  "name": "hubspot-crm-extension",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "dev": "nodemon index"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "bcrypt": "^5.0.0",
+    "chalk": "^4.1.0",
+    "connect-ensure-login": "^0.1.1",
+    "connect-flash": "^0.1.1",
+    "connect-mongodb-session": "^2.4.1",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "express-ejs-layouts": "^2.5.0",
+    "express-rate-limit": "^5.2.6",
+    "express-session": "^1.17.1",
+    "express-validator": "^6.9.2",
+    "express-winston": "^4.0.5",
+    "http-errors": "^1.8.0",
+    "hubspot": "^2.3.14",
+    "loadtest": "^5.1.2",
+    "mongoose": "^5.11.13",
+    "morgan": "^1.10.0",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "redis": "^3.0.2",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.6",
+    "response-time": "^2.3.2",
+    "winston": "^3.3.3",
+    "winston-daily-rotate-file": "^4.5.0",
+    "winston-elasticsearch": "^0.12.3",
+    "winston-mongodb": "^5.0.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}

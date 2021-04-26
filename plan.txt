@@ -1,0 +1,175 @@
+//find and select associated list items
+    let profile = await Profile.findOne({
+        user: req.user._id
+    })
+    .populate({
+        path: 'posts',//associated posts
+        select: 'title thumbnail'
+    })
+    .populate({
+        path: 'bookmarks',//associated bookmarks
+        select: 'title thumbnail'
+    })
+//after save update associated items
+    let createdProfile = await profile.save()
+    await User.findOneAndUpdate({
+        _id: req.user._id
+    }, {
+        $set: {
+            profile: createdProfile._id
+        }
+    })
+
+    let updatedProfile = await Profile.findOneAndUpdate({
+        user: req.user._id
+    }, {
+        $set: profile
+    }, {
+        new: true
+    })
+
+//find with in operator
+    let user = await User.findOne({
+            email
+        })
+
+    let comments = await Comment.find({
+            post: {
+                $in: profile.posts
+            }
+        })
+        .populate({
+            path: 'post',
+            select: 'title'
+        })
+        .populate({
+            path: 'user',
+            select: 'username profilePics'
+        })
+        .populate({
+            path: 'replies.user',
+            select: 'username profilePics'
+        })
+
+
+// select with DOT-NOTATION
+
+    let posts = await Post.find(filterObj)
+            .populate('author', 'username')
+            .sort(order === 1 ? '-createdAt' : 'createdAt')
+            .skip((itemPerPage * currentPage) - itemPerPage)
+            .limit(itemPerPage)
+
+// delete query
+
+    await Post.findOneAndDelete({ _id: postId })
+    
+    await Profile.findOneAndUpdate(
+        { user: req.user._id },
+        {$pull: {'posts': postId}}
+    )
+
+//
+query string==>(req.query)
+    localhost:3000/users?id=100&name=test
+route params==>(req.params)
+    localhost:3000/users/100
+    localhost:3000/users/100/imac (multi params)
+
+//
+const posts=[newPost,...existingPost];
+
+//posts update with new post
+const post;
+const posts=[...existingPost];
+const index=posts.indexOf(post);
+posts[index]={...post}
+
+//post delete from posts
+const posts=existingPost.filter(p=>p.id!===post.id);
+
+//how to set flash message
+req.flash("error", "Invalid Id");
+req.flash("info", "Invalid Id");
+req.flash("warning", "Invalid Id");
+req.flash("success", "Invalid Id");
+
+//mongo
+db.find({QUERY},{PROJECTION})
+
+
+
+//load test
+loadtest [-n requests] [-c concurrency] [-k] URL
+loadtest -n 10 -c 10 http://localhost:8080/rockets
+
+loadtest -n 10 -c 10  -p '{"objectId":"4949871654","name":"test"}' http://localhost:8080/tierone
+
+loadtest -n 10 -c 10 -m POST -P '{"objectId":4949871654,"name":"test"}' http://localhost:8080/tierone
+
+loadtest -n 10 -c 10 -P '{"objectId":4949871654,"name":"test"}' http://localhost:8080/tierone
+
+//redis
+
+GET
+SET
+INCR
+DECR
+EXISTS KEY
+DEL
+
+//way to find file path
+    const processPath = path.join(
+      __dirname,
+      "..",
+      "9-services",
+      "tierOneProcess.js"
+    );
+
+//how to write general promise method
+
+function longComputePromise() {
+  return new Promise((resolve, reject) => {
+    let sum = 0;
+    for (let i = 0; i < 1e9; i++) {
+      sum += i;
+    }
+    resolve(sum);
+  });
+}
+
+to upgrade npm
+    npm install -g npm 
+
+pm2 commands
+pm2 start app.js
+pm2 status
+pm2 logs app or 0 or 1 or all
+pm2 delete 0
+pm2 start app.js --name express-web-server
+pm2 restart 0
+pm2 reload 0
+pm2 stop 0
+pm2 list
+pm2 monit
+pm2 scale sample-app 10
+pm2 start sample-app.js -i 4
+pm2 start app.js -i max
+pm2 flush
+pm2 save
+npm install pm2@latest -g
+pm2 update
+
+to deploy on heroku used following script on package.json
+
+"scripts": {
+    "preinstall": "npm install pm2 -g",
+    "start": "pm2 start ./bin/www"
+ }
+
+ 
+//ejs
+
+res.redirect("/auth/register");
+
+<li><%=JSON.stringify(task.task)%>

@@ -1,0 +1,71 @@
+<!-- inlcude header -->
+<%- include('./layouts/header') %>
+<!-- /inlcude header -->
+
+<h1 class="table">All Tickets</h1>
+
+<a href="/tickets/addTicket">Add Ticket</a>
+
+<table class="table">
+  <thead>
+    <th>id</th>
+    <th>ticketName</th>
+    <th>ticketType</th>
+    <th>ticketPipeline</th>
+    <th>ticketStatus</th>
+    <th>description</th>
+  </thead>
+  <tbody>
+    <% tickets.items.forEach(ticket => { %>
+    <tr>
+      <td><%= ticket._id %></td>
+      <td><%= ticket.ticketName %></td>
+      <td>
+        <a href="/tickets/updateTicket/<%= ticket._id %>">test</a>
+      </td>
+      <td><%= ticket.ticketType %></td>
+      <td><%= ticket.ticketPipeline %></td>
+      <td><%= ticket.ticketStatus %></td>
+      <td><%= ticket.description %></td>
+      <td><a href="/tickets/updateTicket/<%= ticket._id %>">Edit</a></td>
+      <td><a href="/tickets/deleteTicket/<%= ticket._id %>">Delete</a></td>
+    </tr>
+    <% }) %>
+  </tbody>
+</table>
+
+<% if (tickets.totalPage > 1) { %>
+<nav>
+  <ul class="pagination">
+    <li class="page-item <%= tickets.currentPage === 1 ? 'disabled' : '' %>">
+      <a
+        class="page-link"
+        href="<%= `/tickets?page=${tickets.currentPage - 1}`%>"
+      >
+        Previous
+      </a>
+    </li>
+
+    <% for (let i=1; i<=tickets.totalPage; i++) { %>
+    <li class="page-item <%= tickets.currentPage === i ? 'active' : '' %>">
+      <a class="page-link" href="<%= `/tickets?page=${i}`%>"> <%= i %> </a>
+    </li>
+    <% } %>
+
+    <li
+      class="page-item <%= tickets.currentPage === tickets.totalPage ? 'disabled' : '' %>"
+    >
+      <a
+        class="page-link"
+        href="<%= `/tickets?page=${tickets.currentPage + 1}`%>"
+      >
+        Next
+      </a>
+    </li>
+  </ul>
+</nav>
+<% } %>
+
+<!-- inlcude footer -->
+<%- include('./layouts/footer') %>
+<!-- /inlcude footer -->

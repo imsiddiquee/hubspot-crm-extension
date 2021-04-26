@@ -1,0 +1,71 @@
+<form
+  action="<%= ticket.formAction %>"
+  method="<%= ticket.formActionMethod %>"
+  class="lg-form"
+>
+
+<input type="hidden" name="ticketId" value="<%= ticket.id %>" />
+  <div>
+    <label for="ticketName">Ticket Name</label>
+    <input type="hidden" name="id" value="<%= ticket %>" />
+    <input
+      type="text"
+      name="ticketName"
+      id="ticketName"
+      value="<%= ticket.ticketName %>"
+    />
+  </div>
+
+  <div>
+    <label for="description">Pipeline</label>
+
+    <% for (var key in ticket.pipeline) {%> <input type="checkbox" id="<%=key%>"
+    name="checkedPipeline" value="<%=key%>"
+    <%=ticket.checkedPipeline.split(',').includes(key) ? 'checked' : '' %> />
+
+    <label for="<%=key%>"><%=ticket.pipeline[key]%></label>
+
+    <% }%>
+  </div>
+
+  <div>
+    <h5>Ticket Status</h5>
+    <p>
+      <input class="with-gap" type="radio" name="ticketStatus" id="New"
+      value="New" <%= ticket.ticketStatus == 'New' ? 'checked' : '' %> />
+      <label for="New">New</label>
+    </p>
+    <p>
+      <input class="with-gap" type="radio" name="ticketStatus" id="Closed"
+      value="Closed" <%= ticket.ticketStatus == 'Closed' ? 'checked' : '' %> />
+      <label for="Closed">Closed</label>
+    </p>
+  </div>
+
+  <div>
+    <label for="description">Ticket Type</label>
+    <!-- <input type="hidden" name="ticketId" value="<%= ticket.id %>" /> -->
+
+    <select name="ticketType" id="ticketType">
+      <% for (var key in ticket.ticketTypes) {%>
+        <option value="<%= ticket.ticketTypes[key]%>" <%= ticket.ticketType === ticket.ticketTypes[key] ? 'selected' : '' %> ><%= ticket.ticketTypes[key] %></option>
+      <% }%>
+    </select>
+  </div>
+
+  <div>
+    <label for="description">Ticket Description</label>
+    <textarea
+      placeholder="Enter description"
+      name="description"
+      rows="6"
+      cols="60"
+    >
+    <%= ticket.description%>
+    </textarea>
+  </div>
+
+  <div>
+    <input type="submit" value="<%= ticket.formActionTypes%>" />
+  </div>
+</form>

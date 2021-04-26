@@ -1,0 +1,50 @@
+<h1>Ticket</h1>
+
+<form action="/tickets/form" method="post" class="lg-form">
+  <div>
+    <label for="description">Description</label>
+    <input type="text" name="description" id="description" />
+  </div>
+
+  <div>
+    <label for="description">Ticket Type</label>
+    <input type="hidden" name="ticketId" value="<%= ticket.id %>" />
+
+    <select name="ticketType" id="ticketType">
+      <% for (var key in ticketTypes) {%>
+        <option value="<%= ticketTypes[key]%>" <%= ticket.ticketType === ticketTypes[key] ? 'selected' : '' %> ><%= ticketTypes[key] %></option>
+      <% }%>
+    </select>
+  </div>
+
+
+  <div class="form-group">
+    <h5>Hobbies</h5>
+    <input type="checkbox" id="hobby" name="stuhobbies" value="sing"/> &nbsp;&nbsp;<strong>Sing</strong>&nbsp;&nbsp;
+    <input type="checkbox" id="hobby" name="stuhobbies" value="guitarplay"/>&nbsp;&nbsp;<strong>GuitarPlay</strong>&nbsp;&nbsp;
+    <input type="checkbox" id="hobby" name="stuhobbies" value="cricket"/>&nbsp;&nbsp;<strong>Cricket</strong>&nbsp;&nbsp;
+    <input type="checkbox" id="hobby" name="stuhobbies" value="football"/>&nbsp;&nbsp;<strong>Football</strong>&nbsp;&nbsp;
+  </div>
+
+  <div>
+    <p>
+      <input class="with-gap" type="radio" name="gender" id="male" value="M" checked>
+      <label for="male">Male</label>
+   </p>
+   <p>
+       <input class="with-gap" type="radio" name="gender" id="female" value="F">
+      <label for="female">Female</label>
+   </p>
+  </div>
+
+  <div>
+    <textarea placeholder="Type your Emails Here" name="userInput" rows="6" cols="60">
+      
+    </textarea>
+  </div>
+
+
+  <div>
+    <input type="submit" value="Save" />
+  </div>
+</form>
