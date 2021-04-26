@@ -1,15 +1,14 @@
 # How Can We explore New Feature of Hubspot CRM Extension 
 
 
-In HubSpot, the company object is closely attached with deals and the deal object has one too many relations with product line items.
-My CRM extension shows analytical summary of product line items along with price quantity based on  custom field carriers In company page on the right sidebar
+In HubSpot, the company object is closely attached with deals and the deal object has one too many relations with product line items.My CRM extension shows analytical summary of product line items along with price quantity based on custom field carriers In company page on the right sidebar
 
 
 
 
 ## Overview
 
-HubSpot company object 2 types of associations one is parent another one is child. each child company has one too many relationships with product line items, In the company information, there is no scope or option to see product line items information. So here the problem arises how can you get the analytical summary of a line item with different carriers? Furthermore, there is no direct API available to know about the company to product line item information.
+HubSpot company object 2 types of associations one is parent another one is child.Each child company has one too many relationships with product line items, In the company information, there is no scope or option to see product line items information.So here the problem arises how can you get the analytical summary of a line item with different carriers? Furthermore, there is no direct API available to know about the company to product line item information.
 
 One of my client's requirements was to know about the deals product line item information on the company page directly.My project structure was simple so that anyone can understand it easily. To reach the goal I had to build the extension on the NODE js environment. I used HubSpot APIs namely associations, fetch deals, fetch company information, based on HubSpot data this API helped me to collect data from HubSpot then I manipulated the data to store data in MongoDB for caching. It loads from the cache data and does not need to be fetched again within 20 days for better performance in viewing data.
 
